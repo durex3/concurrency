@@ -1,5 +1,6 @@
 package com.durex.concurrency.example.count;
 
+import com.durex.concurrency.annotations.NotThreadSafe;
 import com.durex.concurrency.annotations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
@@ -9,7 +10,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 @Slf4j
-@ThreadSafe
+@NotThreadSafe
 public class CountExample4 {
 
     // 请求总数
@@ -19,7 +20,7 @@ public class CountExample4 {
 
     public  static volatile int count = 0;
 
-    private synchronized static void add() {
+    private static void add() {
         count++;
     }
 
